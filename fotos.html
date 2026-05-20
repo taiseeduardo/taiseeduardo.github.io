@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fotos — Taís & Eduardo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --background: #f8f4ee;
+      --text: #2b2118;
+      --soft-text: #6f6257;
+      --line: #d8cfc2;
+      --card: #fffaf4;
+      --accent: #8a6a4f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      background: var(--background);
+      color: var(--text);
+      text-align: center;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248, 244, 238, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    header {
+      padding: 90px 24px 50px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .small-label {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--soft-text);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 56px;
+      font-weight: normal;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: var(--soft-text);
+      margin-top: 12px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    section {
+      padding: 70px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 38px;
+      font-weight: normal;
+      margin: 0 0 16px;
+    }
+
+    p {
+      max-width: 680px;
+      margin: 0 auto 18px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .gallery {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.015);
+      opacity: 0.92;
+    }
+
+    .empty-message {
+      max-width: 680px;
+      margin: 34px auto 0;
+      padding: 28px;
+      border: 1px dashed var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.35);
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--soft-text);
+    }
+
+    .button {
+      display: inline-block;
+      margin: 12px 8px;
+      padding: 14px 28px;
+      border: 1px solid var(--text);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 999px;
+      letter-spacing: 1px;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: var(--text);
+      color: var(--background);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 18px;
+    }
+
+    .close {
+      position: fixed;
+      top: 20px;
+      right: 26px;
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    footer {
+      padding: 50px 24px;
+      font-size: 15px;
+      color: var(--soft-text);
+    }
+
+    @media (max-width: 900px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
+
+      header {
+        padding: 70px 20px 40px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      section {
+        padding: 56px 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .gallery img {
+        height: 420px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="index.html#confirmacao">Confirmação</a>
+    <a href="index.html#presentes">Presentes</a>
+    <a href="#fotos-casal">Nossas fotos</a>
+    <a href="#fotos-casamento">Fotos do casamento</a>
+  </nav>
+
+  <header>
+    <div class="small-label">Taís & Eduardo</div>
+    <h1>Galeria de fotos</h1>
+    <div class="subtitle">
+      Um espaço para guardar nossas lembranças antes e depois do casamento.
+    </div>
+
+    <a class="button" href="index.html">Voltar ao site</a>
+  </header>
+
+  <main>
+    <section id="fotos-casal">
+      <div class="container">
+        <h2>Nossas fotos</h2>
+        <p>
+          Algumas lembranças nossas antes do grande dia.
+        </p>
+
+        <div id="galeriaCasal" class="gallery"></div>
+
+        <div id="mensagemCasal" class="empty-message" style="display: none;">
+          As fotos do casal ainda não foram adicionadas.
+        </div>
+      </div>
+    </section>
+
+    <section id="fotos-casamento">
+      <div class="container">
+        <h2>Fotos do casamento</h2>
+        <p>
+          Depois do casamento, vamos reunir aqui os registros oficiais desse dia.
+        </p>
+
+        <div id="galeriaCasamento" class="gallery"></div>
+
+        <div id="mensagemCasamento" class="empty-message" style="display: none;">
+          As fotos do casamento ainda não foram adicionadas. Em breve esse espaço será preenchido.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox">
+    <span id="closeLightbox" class="close">&times;</span>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+
+  <footer>
+    Taís & Eduardo · 26/09 · Arembepe, Bahia
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    function abrirLightbox(src, alt) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt;
+      lightbox.classList.add("active");
+    }
+
+    function fecharLightbox() {
+      lightbox.classList.remove("active");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+    }
+
+    function carregarGaleria(arquivoJson, idGaleria, idMensagem, altPadrao) {
+      const galeria = document.getElementById(idGaleria);
+      const mensagem = document.getElementById(idMensagem);
+
+      fetch(arquivoJson)
+        .then(response => response.json())
+        .then(fotos => {
+          if (!fotos || fotos.length === 0) {
+            mensagem.style.display = "block";
+            return;
+          }
+
+          fotos.forEach(foto => {
+            const img = document.createElement("img");
+            img.src = foto.src;
+            img.alt = foto.alt || altPadrao;
+
+            img.addEventListener("click", () => {
+              abrirLightbox(img.src, img.alt);
+            });
+
+            galeria.appendChild(img);
+          });
+        })
+        .catch(error => {
+          mensagem.style.display = "block";
+          console.error("Erro ao carregar " + arquivoJson, error);
+        });
+    }
+
+    carregarGaleria(
+      "fotos-casal.json",
+      "galeriaCasal",
+      "mensagemCasal",
+      "Foto de Taís e Eduardo"
+    );
+
+    carregarGaleria(
+      "fotos-casamento.json",
+      "galeriaCasamento",
+      "mensagemCasamento",
+      "Foto do casamento de Taís e Eduardo"
+    );
+
+    closeLightbox.addEventListener("click", fecharLightbox);
+
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) {
+        fecharLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        fecharLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
