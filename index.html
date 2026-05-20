@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Taís & Eduardo</title>
 
   <style>
@@ -17,6 +18,10 @@
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -46,14 +51,46 @@
       text-transform: uppercase;
     }
 
+    nav a:hover {
+      color: var(--accent);
+    }
+
     .hero {
       min-height: 92vh;
-      padding: 60px 24px;
+      padding: 50px 24px 70px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       border-bottom: 1px solid var(--line);
+    }
+
+    .slideshow {
+      width: min(420px, 82vw);
+      height: min(520px, 72vw);
+      position: relative;
+      margin-bottom: 42px;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: 0 18px 50px rgba(43, 33, 24, 0.08);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 1.4s ease, transform 5s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
     }
 
     .small-label {
@@ -74,7 +111,7 @@
     .cursive {
       font-size: 42px;
       font-style: italic;
-      margin: 8px 0 64px;
+      margin: 8px 0 58px;
     }
 
     .names {
@@ -86,6 +123,8 @@
       font-size: 18px;
       letter-spacing: 2px;
       color: var(--soft-text);
+      max-width: 680px;
+      line-height: 1.6;
     }
 
     section {
@@ -102,6 +141,10 @@
       font-size: 34px;
       font-weight: normal;
       margin: 0 0 24px;
+    }
+
+    h3 {
+      font-weight: normal;
     }
 
     p {
@@ -151,12 +194,11 @@
       border: 1px solid var(--line);
       border-radius: 24px;
       padding: 28px 22px;
-      min-height: 220px;
+      min-height: 240px;
     }
 
     .card h3 {
       font-size: 22px;
-      font-weight: normal;
       margin: 0 0 12px;
     }
 
@@ -181,6 +223,12 @@
       border-radius: 24px;
     }
 
+    .pix-box h3 {
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
     .pix-key {
       font-size: 18px;
       letter-spacing: 1px;
@@ -188,33 +236,16 @@
       color: var(--accent);
     }
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .future-gallery {
       margin-top: 42px;
-    }
-
-    .photo-grid img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-    }
-
-    .placeholder {
-      height: 320px;
+      padding: 34px 24px;
       border: 1px dashed var(--line);
-      border-radius: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--soft-text);
-      background: rgba(255,255,255,0.35);
-      padding: 24px;
-      font-size: 16px;
-      line-height: 1.5;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .future-gallery p {
+      font-size: 17px;
     }
 
     footer {
@@ -226,6 +257,17 @@
     @media (max-width: 800px) {
       nav {
         display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 46px;
+      }
+
+      .slideshow {
+        width: min(340px, 88vw);
+        height: 440px;
+        border-radius: 26px;
       }
 
       h1 {
@@ -242,18 +284,20 @@
         font-size: 34px;
       }
 
-      .grid,
-      .photo-grid {
-        grid-template-columns: 1fr;
+      .date {
+        font-size: 16px;
       }
 
-      .photo-grid img,
-      .placeholder {
-        height: 380px;
+      .grid {
+        grid-template-columns: 1fr;
       }
 
       section {
         padding: 64px 20px;
+      }
+
+      p {
+        font-size: 16px;
       }
     }
   </style>
@@ -270,13 +314,22 @@
 
   <main>
     <header class="hero" id="inicio">
+      <div class="slideshow">
+        <img class="slide active" src="imagens/casal-1.jpg" alt="Taís e Eduardo">
+        <img class="slide" src="imagens/casal-2.jpg" alt="Taís e Eduardo">
+        <img class="slide" src="imagens/casal-3.jpg" alt="Taís e Eduardo">
+        <img class="slide" src="imagens/casal-4.jpg" alt="Taís e Eduardo">
+      </div>
+
       <div class="small-label">26/09 · Arembepe, Bahia</div>
 
       <h1>O AMOR SEMPRE</h1>
       <div class="cursive">encontra o caminho</div>
 
       <div class="names">Taís & Eduardo</div>
-      <div class="date">Estamos muito felizes em celebrar esse dia com vocês.</div>
+      <div class="date">
+        Estamos muito felizes em celebrar esse dia com vocês.
+      </div>
     </header>
 
     <section>
@@ -284,7 +337,8 @@
         <h2>Nosso dia</h2>
         <p>
           Criamos este espaço para reunir as informações importantes do nosso casamento,
-          confirmar presença, compartilhar sugestões de presentes e, com o tempo, guardar algumas fotos desse momento.
+          confirmar presença, compartilhar sugestões de presentes e, com o tempo,
+          guardar algumas lembranças desse momento.
         </p>
         <p>
           Sua presença é muito especial para nós.
@@ -310,49 +364,62 @@
         <h2>Sugestões de presentes</h2>
         <p>
           Sua presença já é o nosso maior presente. Mas, caso queira nos presentear,
-          deixamos algumas sugestões simbólicas e também links de lojas onde pretendemos comprar algumas coisas.
+          deixamos algumas sugestões simbólicas e também links de lojas onde pretendemos
+          comprar algumas coisas.
         </p>
 
         <div class="grid">
           <div class="card">
             <h3>Cota lua de mel</h3>
             <div class="price">R$ 100</div>
-            <p>Uma contribuição para vivermos alguns momentos especiais depois do casamento.</p>
+            <p>
+              Uma contribuição para vivermos alguns momentos especiais depois do casamento.
+            </p>
             <a class="button secondary" href="#pix">Presentear via Pix</a>
           </div>
 
           <div class="card">
             <h3>Jantar dos recém-casados</h3>
             <div class="price">R$ 150</div>
-            <p>Para nosso primeiro jantar especial depois do grande dia.</p>
+            <p>
+              Para nosso primeiro jantar especial depois do grande dia.
+            </p>
             <a class="button secondary" href="#pix">Presentear via Pix</a>
           </div>
 
           <div class="card">
             <h3>Café da manhã</h3>
             <div class="price">R$ 80</div>
-            <p>Uma ajuda simbólica para começarmos a vida de casados com carinho.</p>
+            <p>
+              Uma ajuda simbólica para começarmos a vida de casados com carinho.
+            </p>
             <a class="button secondary" href="#pix">Presentear via Pix</a>
           </div>
 
           <div class="card">
             <h3>Casa nova</h3>
             <div class="price">R$ 200</div>
-            <p>Para comprarmos itens úteis para o nosso novo lar.</p>
+            <p>
+              Para comprarmos itens úteis para o nosso novo lar.
+            </p>
             <a class="button secondary" href="#pix">Presentear via Pix</a>
           </div>
 
           <div class="card">
             <h3>Decoração da casa</h3>
             <div class="price">R$ 120</div>
-            <p>Para deixarmos nosso cantinho mais bonito e com a nossa cara.</p>
+            <p>
+              Para deixarmos nosso cantinho mais bonito e com a nossa cara.
+            </p>
             <a class="button secondary" href="#pix">Presentear via Pix</a>
           </div>
 
           <div class="card">
             <h3>Presente livre</h3>
             <div class="price">Qualquer valor</div>
-            <p>Escolha o valor que desejar. Receberemos com muito carinho.</p>
+            <p>
+              Escolha o valor que desejar. Receberemos com muito carinho.
+            </p>
             <a class="button secondary" href="#pix">Presentear via Pix</a>
           </div>
         </div>
@@ -368,39 +435,42 @@
         <div style="margin-top: 56px;">
           <h2>Links de lojas</h2>
           <p>
-            Se preferir escolher um presente diretamente em alguma loja, deixamos algumas sugestões abaixo.
+            Se preferir escolher um presente diretamente em alguma loja,
+            deixamos algumas sugestões abaixo.
           </p>
 
-          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_1" target="_blank">Loja 1</a>
-          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_2" target="_blank">Loja 2</a>
-          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_3" target="_blank">Loja 3</a>
+          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_1" target="_blank">
+            Loja 1
+          </a>
+
+          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_2" target="_blank">
+            Loja 2
+          </a>
+
+          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_3" target="_blank">
+            Loja 3
+          </a>
         </div>
       </div>
     </section>
 
     <section id="fotos">
       <div class="container">
-        <h2>Nossas fotos</h2>
+        <h2>Fotos</h2>
         <p>
-          Em breve vamos colocar aqui algumas fotos nossas e, depois do casamento,
-          também queremos guardar algumas lembranças desse dia.
+          Por enquanto, deixamos algumas fotos nossas na página inicial.
+          Depois do casamento, vamos reunir aqui as fotos oficiais desse dia.
         </p>
 
-        <div class="photo-grid">
-          <div class="placeholder">
-            Foto do casal<br>
-            Depois substitua por uma imagem.
-          </div>
+        <div class="future-gallery">
+          <h3>Fotos do casamento</h3>
+          <p>
+            Este espaço ficará reservado para as fotos do fotógrafo e registros do grande dia.
+          </p>
 
-          <div class="placeholder">
-            Pré-casamento<br>
-            Espaço reservado.
-          </div>
-
-          <div class="placeholder">
-            Fotos do casamento<br>
-            Em breve.
-          </div>
+          <a class="button" href="fotos.html">
+            Ver fotos do casamento
+          </a>
         </div>
       </div>
     </section>
@@ -409,7 +479,8 @@
       <div class="container">
         <h2>Informações importantes</h2>
         <p>
-          Este site é destinado aos nossos convidados. Pedimos que o link não seja compartilhado fora da lista de convidados.
+          Este site é destinado aos nossos convidados. Pedimos que o link não seja compartilhado
+          fora da lista de convidados.
         </p>
         <p>
           Mais detalhes sobre horário, localização e orientações serão adicionados aqui em breve.
@@ -421,5 +492,16 @@
   <footer>
     Taís & Eduardo · 26/09 · Arembepe, Bahia
   </footer>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 5000);
+  </script>
 </body>
 </html>
