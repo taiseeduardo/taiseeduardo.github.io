@@ -1,73 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Taís & Eduardo</title>
 
   <style>
+    :root {
+      --background: #f8f4ee;
+      --text: #2b2118;
+      --soft-text: #6f6257;
+      --line: #d8cfc2;
+      --card: #fffaf4;
+      --accent: #8a6a4f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: #f8f4ee;
-      color: #2b2118;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--background);
+      color: var(--text);
       text-align: center;
     }
 
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(248, 244, 238, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
     .hero {
-      min-height: 100vh;
-      padding: 40px 24px;
+      min-height: 92vh;
+      padding: 60px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-sizing: border-box;
+      border-bottom: 1px solid var(--line);
     }
 
-    .photo {
-      width: 260px;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 40px;
+    .small-label {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--soft-text);
+      margin-bottom: 24px;
     }
 
     h1 {
-      font-size: 42px;
-      letter-spacing: 4px;
+      font-size: 48px;
+      letter-spacing: 5px;
       font-weight: normal;
       margin: 0;
     }
 
     .cursive {
-      font-size: 38px;
+      font-size: 42px;
       font-style: italic;
-      margin: 8px 0 60px;
+      margin: 8px 0 64px;
     }
 
     .names {
-      font-size: 38px;
-      margin-bottom: 12px;
+      font-size: 42px;
+      margin-bottom: 14px;
     }
 
     .date {
       font-size: 18px;
       letter-spacing: 2px;
+      color: var(--soft-text);
     }
 
     section {
-      padding: 70px 24px;
-      border-top: 1px solid #d8cfc2;
+      padding: 80px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
     }
 
     h2 {
-      font-size: 30px;
+      font-size: 34px;
       font-weight: normal;
-      margin-bottom: 24px;
+      margin: 0 0 24px;
     }
 
     p {
-      max-width: 620px;
+      max-width: 680px;
       margin: 0 auto 18px;
       font-size: 18px;
       line-height: 1.7;
@@ -75,116 +113,313 @@
 
     .button {
       display: inline-block;
-      margin-top: 24px;
+      margin: 12px 8px;
       padding: 14px 28px;
-      border: 1px solid #2b2118;
-      color: #2b2118;
+      border: 1px solid var(--text);
+      color: var(--text);
       text-decoration: none;
       border-radius: 999px;
       letter-spacing: 1px;
+      font-size: 15px;
+      transition: 0.2s;
     }
 
     .button:hover {
-      background: #2b2118;
-      color: #f8f4ee;
+      background: var(--text);
+      color: var(--background);
     }
 
-    .gift {
-      max-width: 420px;
-      margin: 24px auto;
+    .button.secondary {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .button.secondary:hover {
+      background: var(--accent);
+      color: var(--background);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 22px;
+      min-height: 220px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      font-weight: normal;
+      margin: 0 0 12px;
+    }
+
+    .price {
+      font-size: 24px;
+      margin: 10px 0;
+      color: var(--accent);
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .pix-box {
+      margin: 36px auto 0;
+      padding: 26px;
+      max-width: 620px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+
+    .pix-key {
+      font-size: 18px;
+      letter-spacing: 1px;
+      word-break: break-word;
+      color: var(--accent);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 42px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+    }
+
+    .placeholder {
+      height: 320px;
+      border: 1px dashed var(--line);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--soft-text);
+      background: rgba(255,255,255,0.35);
       padding: 24px;
-      border: 1px solid #d8cfc2;
-      border-radius: 20px;
+      font-size: 16px;
+      line-height: 1.5;
     }
 
     footer {
       padding: 50px 24px;
       font-size: 15px;
+      color: var(--soft-text);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
       h1 {
-        font-size: 30px;
+        font-size: 32px;
+        letter-spacing: 3px;
       }
 
       .cursive {
-        font-size: 32px;
+        font-size: 34px;
+        margin-bottom: 52px;
       }
 
       .names {
-        font-size: 30px;
+        font-size: 34px;
       }
 
-      .photo {
-        width: 220px;
-        height: 220px;
+      .grid,
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid img,
+      .placeholder {
+        height: 380px;
+      }
+
+      section {
+        padding: 64px 20px;
       }
     }
   </style>
 </head>
 
 <body>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#confirmacao">Confirmação</a>
+    <a href="#presentes">Presentes</a>
+    <a href="#fotos">Fotos</a>
+    <a href="#informacoes">Informações</a>
+  </nav>
+
   <main>
-    <div class="hero">
-      <img class="photo" src="imagens/casal.jpg" alt="Taís e Eduardo">
+    <header class="hero" id="inicio">
+      <div class="small-label">26/09 · Arembepe, Bahia</div>
 
       <h1>O AMOR SEMPRE</h1>
-      <p class="cursive">encontra o caminho</p>
+      <div class="cursive">encontra o caminho</div>
 
       <div class="names">Taís & Eduardo</div>
-      <div class="date">26/09 · AREMBEPE, BAHIA</div>
-    </div>
+      <div class="date">Estamos muito felizes em celebrar esse dia com vocês.</div>
+    </header>
 
     <section>
-      <h2>O grande dia</h2>
-      <p>
-        Será uma alegria imensa ter você conosco para celebrar esse momento tão especial.
-      </p>
-      <p>
-        Em breve colocaremos aqui mais informações sobre horário, local e orientações para os convidados.
-      </p>
+      <div class="container">
+        <h2>Nosso dia</h2>
+        <p>
+          Criamos este espaço para reunir as informações importantes do nosso casamento,
+          confirmar presença, compartilhar sugestões de presentes e, com o tempo, guardar algumas fotos desse momento.
+        </p>
+        <p>
+          Sua presença é muito especial para nós.
+        </p>
+      </div>
     </section>
 
-    <section>
-      <h2>Confirme sua presença</h2>
-      <p>
-        Para nos ajudar na organização, pedimos que confirme sua presença pelo formulário abaixo.
-      </p>
+    <section id="confirmacao">
+      <div class="container">
+        <h2>Confirme sua presença</h2>
+        <p>
+          Para nos ajudar na organização, pedimos que confirme sua presença pelo formulário abaixo.
+        </p>
 
-      <a class="button" href="COLE_AQUI_O_LINK_DO_GOOGLE_FORMS" target="_blank">
-        Confirmar presença
-      </a>
+        <a class="button" href="COLE_AQUI_O_LINK_DO_GOOGLE_FORMS" target="_blank">
+          Confirmar presença
+        </a>
+      </div>
     </section>
 
-    <section>
-      <h2>Lista de presentes</h2>
-      <p>
-        Sua presença já é o nosso maior presente. Mas, caso queira contribuir com esse novo começo,
-        deixamos algumas opções simbólicas.
-      </p>
+    <section id="presentes">
+      <div class="container">
+        <h2>Sugestões de presentes</h2>
+        <p>
+          Sua presença já é o nosso maior presente. Mas, caso queira nos presentear,
+          deixamos algumas sugestões simbólicas e também links de lojas onde pretendemos comprar algumas coisas.
+        </p>
 
-      <div class="gift">
-        <h3>Cota lua de mel</h3>
-        <p>R$ 100</p>
-        <p>Pix: COLOQUE_SEU_PIX_AQUI</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Cota lua de mel</h3>
+            <div class="price">R$ 100</div>
+            <p>Uma contribuição para vivermos alguns momentos especiais depois do casamento.</p>
+            <a class="button secondary" href="#pix">Presentear via Pix</a>
+          </div>
+
+          <div class="card">
+            <h3>Jantar dos recém-casados</h3>
+            <div class="price">R$ 150</div>
+            <p>Para nosso primeiro jantar especial depois do grande dia.</p>
+            <a class="button secondary" href="#pix">Presentear via Pix</a>
+          </div>
+
+          <div class="card">
+            <h3>Café da manhã</h3>
+            <div class="price">R$ 80</div>
+            <p>Uma ajuda simbólica para começarmos a vida de casados com carinho.</p>
+            <a class="button secondary" href="#pix">Presentear via Pix</a>
+          </div>
+
+          <div class="card">
+            <h3>Casa nova</h3>
+            <div class="price">R$ 200</div>
+            <p>Para comprarmos itens úteis para o nosso novo lar.</p>
+            <a class="button secondary" href="#pix">Presentear via Pix</a>
+          </div>
+
+          <div class="card">
+            <h3>Decoração da casa</h3>
+            <div class="price">R$ 120</div>
+            <p>Para deixarmos nosso cantinho mais bonito e com a nossa cara.</p>
+            <a class="button secondary" href="#pix">Presentear via Pix</a>
+          </div>
+
+          <div class="card">
+            <h3>Presente livre</h3>
+            <div class="price">Qualquer valor</div>
+            <p>Escolha o valor que desejar. Receberemos com muito carinho.</p>
+            <a class="button secondary" href="#pix">Presentear via Pix</a>
+          </div>
+        </div>
+
+        <div class="pix-box" id="pix">
+          <h3>Pix dos noivos</h3>
+          <p>
+            Para contribuir com qualquer uma das opções acima, use nossa chave Pix:
+          </p>
+          <div class="pix-key">COLOQUE_AQUI_A_CHAVE_PIX</div>
+        </div>
+
+        <div style="margin-top: 56px;">
+          <h2>Links de lojas</h2>
+          <p>
+            Se preferir escolher um presente diretamente em alguma loja, deixamos algumas sugestões abaixo.
+          </p>
+
+          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_1" target="_blank">Loja 1</a>
+          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_2" target="_blank">Loja 2</a>
+          <a class="button" href="COLE_AQUI_LINK_DA_LOJA_3" target="_blank">Loja 3</a>
+        </div>
       </div>
+    </section>
 
-      <div class="gift">
-        <h3>Jantar dos recém-casados</h3>
-        <p>R$ 150</p>
-        <p>Pix: COLOQUE_SEU_PIX_AQUI</p>
+    <section id="fotos">
+      <div class="container">
+        <h2>Nossas fotos</h2>
+        <p>
+          Em breve vamos colocar aqui algumas fotos nossas e, depois do casamento,
+          também queremos guardar algumas lembranças desse dia.
+        </p>
+
+        <div class="photo-grid">
+          <div class="placeholder">
+            Foto do casal<br>
+            Depois substitua por uma imagem.
+          </div>
+
+          <div class="placeholder">
+            Pré-casamento<br>
+            Espaço reservado.
+          </div>
+
+          <div class="placeholder">
+            Fotos do casamento<br>
+            Em breve.
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="gift">
-        <h3>Café da manhã depois do casamento</h3>
-        <p>R$ 80</p>
-        <p>Pix: COLOQUE_SEU_PIX_AQUI</p>
+    <section id="informacoes">
+      <div class="container">
+        <h2>Informações importantes</h2>
+        <p>
+          Este site é destinado aos nossos convidados. Pedimos que o link não seja compartilhado fora da lista de convidados.
+        </p>
+        <p>
+          Mais detalhes sobre horário, localização e orientações serão adicionados aqui em breve.
+        </p>
       </div>
     </section>
   </main>
 
   <footer>
-    Taís & Eduardo · 26/09
+    Taís & Eduardo · 26/09 · Arembepe, Bahia
   </footer>
 </body>
 </html>
