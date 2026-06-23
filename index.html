@@ -170,8 +170,23 @@
       font-family: "Italianno", cursive;
       font-size: 78px;
       font-weight: 400;
-      line-height: 1;
-      margin-bottom: 14px;
+      line-height: 0.82;
+      margin-bottom: 20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .name-line {
+      display: block;
+    }
+
+    .ampersand {
+      display: block;
+      font-size: 0.55em;
+      line-height: 0.75;
+      margin: 5px 0;
     }
 
     .date {
@@ -379,7 +394,11 @@
         <h1>O amor sempre</h1>
         <div class="cursive">encontra o caminho</div>
 
-        <div class="names">Taís & Eduardo</div>
+        <div class="names">
+          <span class="name-line">Taís</span>
+          <span class="ampersand">&amp;</span>
+          <span class="name-line">Eduardo</span>
+        </div>
 
         <div class="small-label">26/09 · Arembepe, Bahia</div>
       </div>
