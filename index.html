@@ -271,6 +271,28 @@
       line-height: 1;
     }
 
+    .i-com-acento {
+      position: relative;
+      display: inline-block;
+    }
+
+    .i-com-acento::after {
+      content: "";
+      position: absolute;
+
+      width: 0.20em;
+      height: 0.035em;
+
+      top: -0.03em;
+      left: 58%;
+
+      background: currentColor;
+      border-radius: 999px;
+
+      transform: translateX(-50%) rotate(-55deg);
+      transform-origin: center;
+    }
+
     .date {
       max-width: 680px;
       margin: 0 auto;
@@ -662,7 +684,7 @@
         </div>
 
         <div class="names">
-          Taís & Eduardo
+          Ta<span class="i-com-acento">i</span>s & Eduardo
         </div>
 
         <div
