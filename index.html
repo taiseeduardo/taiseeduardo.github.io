@@ -7,7 +7,7 @@
   <title>Taís & Eduardo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     :root {
       --background: #f8f4ee;
@@ -30,7 +30,36 @@
     body {
       margin: 0;
       font-family: "Cormorant Garamond", Georgia, serif;
-      background: var(--background);
+
+      background-color: #f5f1e7;
+      background-image:
+        radial-gradient(
+          circle at 20% 30%,
+          rgba(209, 201, 164, 0.18) 0,
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(225, 215, 190, 0.22) 0,
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 35% 80%,
+          rgba(190, 197, 163, 0.12) 0,
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 75% 75%,
+          rgba(221, 204, 174, 0.14) 0,
+          transparent 27%
+        );
+
+      background-size:
+        520px 520px,
+        620px 620px,
+        700px 700px,
+        580px 580px;
+
       color: var(--text);
       text-align: center;
     }
@@ -118,21 +147,26 @@
     }
 
     h1 {
+      font-family: "Alice", serif;
       font-size: 58px;
-      letter-spacing: 5px;
+      letter-spacing: 1px;
       font-weight: normal;
+      text-transform: none;
       margin: 0;
-    }
+    }     
 
     .cursive {
-    font-size: 58px;
-    font-family: "Great Vibes", cursive;
-    font-style: normal;
-    margin: 8px 0 58px;
-    }
+      font-family: "Great Vibes", cursive;
+      font-size: 64px;
+      font-weight: normal;
+      line-height: 1;
+      margin: 2px 0 58px;
+    } 
 
     .names {
-      font-size: 48px;
+      font-family: "Great Vibes", cursive;
+      font-size: 64px;
+      font-weight: normal;
       margin-bottom: 14px;
     }
 
@@ -340,7 +374,7 @@
       <div class="hero-content">
         <div class="small-label">26/09 · Arembepe, Bahia</div>
 
-        <h1>O AMOR SEMPRE</h1>
+        <h1>O amor sempre</h1>
         <div class="cursive">encontra o caminho</div>
 
         <div class="names">Taís & Eduardo</div>
