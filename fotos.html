@@ -210,15 +210,31 @@
 
     @media (max-width: 600px) {
       nav {
+        display: flex;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 12px 8px;
+        scrollbar-width: none;
+      }
+
+      nav::-webkit-scrollbar {
         display: none;
       }
 
+      nav a {
+        flex: 0 0 auto;
+        margin: 0 8px;
+        font-size: 12px;
+      }
+
       header {
-        padding: 70px 20px 40px;
+        padding: 78px 18px 38px;
       }
 
       h1 {
         font-size: 40px;
+        line-height: 1.1;
       }
 
       .subtitle {
@@ -226,20 +242,34 @@
       }
 
       section {
-        padding: 56px 18px;
+        padding: 50px 14px;
+      }
+
+      h2 {
+        font-size: 32px;
       }
 
       .gallery {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
       }
 
       .gallery img {
-        height: 420px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 16px;
       }
 
       p {
-        font-size: 16px;
+        font-size: 17px;
+      }
+
+      .button {
+        display: block;
+        width: min(100%, 320px);
+        margin: 12px auto;
       }
     }
   </style>
@@ -338,6 +368,8 @@
             const img = document.createElement("img");
             img.src = foto.src;
             img.alt = foto.alt || altPadrao;
+            img.loading = "lazy";
+            img.decoding = "async";
 
             img.addEventListener("click", () => {
               abrirLightbox(img.src, img.alt);

@@ -328,46 +328,115 @@
     }
 
     @media (max-width: 800px) {
+      body {
+        overflow-x: hidden;
+      }
+
       nav {
+        display: flex;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 12px 8px;
+        scrollbar-width: none;
+      }
+
+      nav::-webkit-scrollbar {
         display: none;
       }
 
+      nav a {
+        flex: 0 0 auto;
+        margin: 0 8px;
+        font-size: 12px;
+        letter-spacing: 0.7px;
+      }
+
       .hero {
-        min-height: 100vh;
+        min-height: 100svh;
+      }
+
+      .hero-slide {
+        background-size: cover;
+        background-position: center;
       }
 
       .hero-content {
-        padding: 50px 20px;
+        width: 100%;
+        padding: 90px 18px 44px;
       }
 
       h1 {
-        font-size: 108px;
-        letter-spacing: 30px;
+        font-size: clamp(36px, 10vw, 52px);
+        letter-spacing: 0;
+        line-height: 1.05;
       }
 
       .cursive {
-        font-size: 36px;
-        margin-bottom: 42px;
+        font-size: clamp(42px, 12vw, 62px);
+        line-height: 1;
+        margin: 4px 0 38px;
       }
 
       .names {
-        font-size: 58px;
+        font-size: clamp(54px, 15vw, 80px);
+        line-height: 1;
+        margin-bottom: 14px;
       }
 
-      .date {
+      .names img {
+        display: block;
+        width: min(90vw, 430px);
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .small-label {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+      }
+
+      section {
+        padding: 56px 18px;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 18px;
+      }
+
+      p {
         font-size: 17px;
+        line-height: 1.6;
+      }
+
+      .button {
+        display: block;
+        width: min(100%, 320px);
+        margin: 12px auto;
+        padding: 14px 18px;
       }
 
       .grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 30px;
       }
 
-      section {
-        padding: 64px 20px;
+      .card {
+        min-height: auto;
+        padding: 24px 18px;
       }
 
-      p {
-        font-size: 16px;
+      .pix-box,
+      .future-gallery {
+        padding: 24px 18px;
+        border-radius: 20px;
+      }
+
+      footer {
+        padding: 36px 18px;
       }
     }
   </style>
