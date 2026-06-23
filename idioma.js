@@ -83,7 +83,7 @@ const traducoes = {
     menuFotosCasamento: "Wedding photos",
 
     fraseAmor: "Love always",
-    fraseCaminho: "finds a way",
+    fraseCaminho: " finds a way",
     dataLocal: "September 26 · Arembepe, Bahia",
 
     nossoDiaTitulo: "Our day",
