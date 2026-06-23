@@ -2,13 +2,28 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Fotos — Taís & Eduardo</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title data-i18n="tituloPaginaFotos">
+    Fotos — Taís & Eduardo
+  </title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -30,9 +45,11 @@
 
     body {
       margin: 0;
-      font-family: "Cormorant Garamond", Georgia, serif;
+
       background: var(--background);
       color: var(--text);
+
+      font-family: "Cormorant Garamond", Georgia, serif;
       text-align: center;
     }
 
@@ -40,16 +57,23 @@
       position: sticky;
       top: 0;
       z-index: 20;
+
+      padding: 12px 20px;
+
       background: rgba(248, 244, 238, 0.92);
       backdrop-filter: blur(8px);
+
       border-bottom: 1px solid var(--line);
-      padding: 14px 20px;
     }
 
     nav a {
+      display: inline-block;
+
+      margin: 0 10px;
+
       color: var(--text);
       text-decoration: none;
-      margin: 0 12px;
+
       font-size: 14px;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -59,33 +83,80 @@
       color: var(--accent);
     }
 
+    .language-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+
+    .language-selector button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 32px;
+      padding: 5px 9px;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      background: transparent;
+      color: var(--text);
+
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 13px;
+      font-weight: 600;
+
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .language-selector button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .language-selector button.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: var(--background);
+    }
+
     header {
       padding: 90px 24px 50px;
       border-bottom: 1px solid var(--line);
     }
 
     .small-label {
+      margin-bottom: 18px;
+
+      color: var(--soft-text);
+
       font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--soft-text);
-      margin-bottom: 18px;
     }
 
     h1 {
+      margin: 0;
+
       font-size: 56px;
       font-weight: normal;
-      margin: 0;
       letter-spacing: 2px;
     }
 
     .subtitle {
-      font-size: 22px;
-      color: var(--soft-text);
-      margin-top: 12px;
       max-width: 680px;
-      margin-left: auto;
+      margin-top: 12px;
       margin-right: auto;
+      margin-left: auto;
+
+      color: var(--soft-text);
+
+      font-size: 22px;
       line-height: 1.5;
     }
 
@@ -100,34 +171,43 @@
     }
 
     h2 {
+      margin: 0 0 16px;
+
       font-size: 38px;
       font-weight: normal;
-      margin: 0 0 16px;
     }
 
     p {
       max-width: 680px;
       margin: 0 auto 18px;
+
       font-size: 18px;
       line-height: 1.7;
     }
 
     .gallery {
-      margin-top: 36px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+
+      margin-top: 36px;
     }
 
     .gallery img {
       width: 100%;
       height: 360px;
+
       object-fit: cover;
-      border-radius: 22px;
-      border: 1px solid var(--line);
+
       background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+
       cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
     }
 
     .gallery img:hover {
@@ -139,24 +219,32 @@
       max-width: 680px;
       margin: 34px auto 0;
       padding: 28px;
+
+      background: rgba(255, 255, 255, 0.35);
       border: 1px dashed var(--line);
       border-radius: 24px;
-      background: rgba(255, 255, 255, 0.35);
+
+      color: var(--soft-text);
+
       font-size: 20px;
       line-height: 1.6;
-      color: var(--soft-text);
     }
 
     .button {
       display: inline-block;
+
       margin: 12px 8px;
       padding: 14px 28px;
+
       border: 1px solid var(--text);
+      border-radius: 999px;
+
       color: var(--text);
       text-decoration: none;
-      border-radius: 999px;
-      letter-spacing: 1px;
+
       font-size: 15px;
+      letter-spacing: 1px;
+
       transition: 0.2s;
     }
 
@@ -168,12 +256,15 @@
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.86);
+      z-index: 100;
+
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 100;
+
       padding: 24px;
+
+      background: rgba(0, 0, 0, 0.86);
     }
 
     .lightbox.active {
@@ -183,6 +274,7 @@
     .lightbox img {
       max-width: 95vw;
       max-height: 90vh;
+
       border-radius: 18px;
     }
 
@@ -190,16 +282,20 @@
       position: fixed;
       top: 20px;
       right: 26px;
+
       color: white;
+
       font-size: 42px;
-      cursor: pointer;
       line-height: 1;
+
+      cursor: pointer;
     }
 
     footer {
       padding: 50px 24px;
-      font-size: 15px;
+
       color: var(--soft-text);
+      font-size: 15px;
     }
 
     @media (max-width: 900px) {
@@ -212,9 +308,12 @@
       nav {
         display: flex;
         justify-content: flex-start;
+        align-items: center;
+
         overflow-x: auto;
         white-space: nowrap;
-        padding: 12px 8px;
+
+        padding: 10px 8px;
         scrollbar-width: none;
       }
 
@@ -224,7 +323,22 @@
 
       nav a {
         flex: 0 0 auto;
+
         margin: 0 8px;
+
+        font-size: 12px;
+      }
+
+      .language-selector {
+        flex: 0 0 auto;
+
+        margin-left: 6px;
+        margin-right: 8px;
+      }
+
+      .language-selector button {
+        min-height: 30px;
+        padding: 4px 8px;
         font-size: 12px;
       }
 
@@ -258,7 +372,9 @@
         width: 100%;
         height: auto;
         aspect-ratio: 4 / 5;
+
         object-fit: cover;
+
         border-radius: 16px;
       }
 
@@ -268,6 +384,7 @@
 
       .button {
         display: block;
+
         width: min(100%, 320px);
         margin: 12px auto;
       }
@@ -277,38 +394,110 @@
 
 <body>
   <nav>
-    <div class="language-selector">
-      <button type="button" data-language="pt-BR">🇧🇷 PT</button>
-      <button type="button" data-language="en">🇬🇧 EN</button>
+    <a
+      href="index.html"
+      data-i18n="menuInicio"
+    >
+      Início
+    </a>
+
+    <a
+      href="index.html#confirmacao"
+      data-i18n="menuConfirmacao"
+    >
+      Confirmação
+    </a>
+
+    <a
+      href="index.html#presentes"
+      data-i18n="menuPresentes"
+    >
+      Presentes
+    </a>
+
+    <a
+      href="#fotos-casal"
+      data-i18n="menuNossasFotos"
+    >
+      Nossas fotos
+    </a>
+
+    <a
+      href="#fotos-casamento"
+      data-i18n="menuFotosCasamento"
+    >
+      Fotos do casamento
+    </a>
+
+    <div
+      class="language-selector"
+      aria-label="Selecionar idioma"
+    >
+      <button
+        type="button"
+        data-language="pt-BR"
+        aria-label="Português"
+      >
+        🇧🇷 PT
+      </button>
+
+      <button
+        type="button"
+        data-language="en"
+        aria-label="English"
+      >
+        🇬🇧 EN
+      </button>
     </div>
-    <a href="#inicio" data-i18n="menuInicio">Início</a>
-    <a href="index.html#confirmacao">Confirmação</a>
-    <a href="index.html#presentes">Presentes</a>
-    <a href="#fotos-casal">Nossas fotos</a>
-    <a href="#fotos-casamento">Fotos do casamento</a>
   </nav>
 
   <header>
-    <div class="small-label">Taís & Eduardo</div>
-    <h1>Galeria de fotos</h1>
-    <div class="subtitle">
+    <div class="small-label">
+      Taís & Eduardo
+    </div>
+
+    <h1 data-i18n="galeriaTitulo">
+      Galeria de fotos
+    </h1>
+
+    <div
+      class="subtitle"
+      data-i18n="galeriaSubtitulo"
+    >
       Um espaço para guardar nossas lembranças antes e depois do casamento.
     </div>
 
-    <a class="button" href="index.html">Voltar ao site</a>
+    <a
+      class="button"
+      href="index.html"
+      data-i18n="voltarSite"
+    >
+      Voltar ao site
+    </a>
   </header>
 
   <main>
     <section id="fotos-casal">
       <div class="container">
-        <h2>Nossas fotos</h2>
-        <p>
+        <h2 data-i18n="nossasFotosTitulo">
+          Nossas fotos
+        </h2>
+
+        <p data-i18n="nossasFotosTexto">
           Algumas lembranças nossas antes do grande dia.
         </p>
 
-        <div id="galeriaCasal" class="gallery"></div>
+        <div
+          id="galeriaCasal"
+          class="gallery"
+        ></div>
 
-        <div id="mensagemCasal" class="empty-message" style="display: none;">
+        <div
+          id="mensagemCasal"
+          class="empty-message"
+          style="display: none;"
+          data-i18n="semFotosCasal"
+        >
           As fotos do casal ainda não foram adicionadas.
         </div>
       </div>
@@ -316,23 +505,49 @@
 
     <section id="fotos-casamento">
       <div class="container">
-        <h2>Fotos do casamento</h2>
-        <p>
-          Depois do casamento, vamos reunir aqui os registros oficiais desse dia.
+        <h2 data-i18n="fotosCasamentoTitulo">
+          Fotos do casamento
+        </h2>
+
+        <p data-i18n="fotosCasamentoTexto">
+          Depois do casamento, vamos reunir aqui os registros oficiais desse
+          dia.
         </p>
 
-        <div id="galeriaCasamento" class="gallery"></div>
+        <div
+          id="galeriaCasamento"
+          class="gallery"
+        ></div>
 
-        <div id="mensagemCasamento" class="empty-message" style="display: none;">
-          As fotos do casamento ainda não foram adicionadas. Em breve esse espaço será preenchido.
+        <div
+          id="mensagemCasamento"
+          class="empty-message"
+          style="display: none;"
+          data-i18n="semFotosCasamento"
+        >
+          As fotos do casamento ainda não foram adicionadas. Em breve esse
+          espaço será preenchido.
         </div>
       </div>
     </section>
   </main>
 
-  <div id="lightbox" class="lightbox">
-    <span id="closeLightbox" class="close">&times;</span>
-    <img id="lightboxImage" src="" alt="">
+  <div
+    id="lightbox"
+    class="lightbox"
+  >
+    <span
+      id="closeLightbox"
+      class="close"
+    >
+      &times;
+    </span>
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt=""
+    >
   </div>
 
   <footer>
@@ -340,9 +555,14 @@
   </footer>
 
   <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const closeLightbox = document.getElementById("closeLightbox");
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImage =
+      document.getElementById("lightboxImage");
+
+    const closeLightbox =
+      document.getElementById("closeLightbox");
 
     function abrirLightbox(src, alt) {
       lightboxImage.src = src;
@@ -356,27 +576,50 @@
       lightboxImage.alt = "";
     }
 
-    function carregarGaleria(arquivoJson, idGaleria, idMensagem, altPadrao) {
-      const galeria = document.getElementById(idGaleria);
-      const mensagem = document.getElementById(idMensagem);
+    function carregarGaleria(
+      arquivoJson,
+      idGaleria,
+      idMensagem,
+      altPadrao
+    ) {
+      const galeria =
+        document.getElementById(idGaleria);
+
+      const mensagem =
+        document.getElementById(idMensagem);
 
       fetch(arquivoJson)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(
+              "Não foi possível carregar " + arquivoJson
+            );
+          }
+
+          return response.json();
+        })
         .then(fotos => {
           if (!fotos || fotos.length === 0) {
             mensagem.style.display = "block";
             return;
           }
 
+          mensagem.style.display = "none";
+
           fotos.forEach(foto => {
-            const img = document.createElement("img");
+            const img =
+              document.createElement("img");
+
             img.src = foto.src;
             img.alt = foto.alt || altPadrao;
             img.loading = "lazy";
             img.decoding = "async";
 
             img.addEventListener("click", () => {
-              abrirLightbox(img.src, img.alt);
+              abrirLightbox(
+                img.src,
+                img.alt
+              );
             });
 
             galeria.appendChild(img);
@@ -384,7 +627,11 @@
         })
         .catch(error => {
           mensagem.style.display = "block";
-          console.error("Erro ao carregar " + arquivoJson, error);
+
+          console.error(
+            "Erro ao carregar " + arquivoJson,
+            error
+          );
         });
     }
 
@@ -402,7 +649,10 @@
       "Foto do casamento de Taís e Eduardo"
     );
 
-    closeLightbox.addEventListener("click", fecharLightbox);
+    closeLightbox.addEventListener(
+      "click",
+      fecharLightbox
+    );
 
     lightbox.addEventListener("click", event => {
       if (event.target === lightbox) {
@@ -417,7 +667,6 @@
     });
   </script>
 
-
-<script src="idioma.js"></script>
+  <script src="idioma.js"></script>
 </body>
 </html>

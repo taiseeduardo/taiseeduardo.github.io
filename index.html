@@ -2,17 +2,30 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title data-i18n="tituloPaginaPrincipal">
+    Taís & Eduardo
+  </title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Alice&family=Cormorant+Garamond:wght@400;500;600;700&family=Italianno&family=Parisienne&display=swap"
     rel="stylesheet"
   >
-  <style>
 
+  <style>
     @font-face {
       font-family: "Brittany Signature";
       src: url("fontes/BrittanySignature.ttf") format("truetype");
@@ -20,7 +33,6 @@
       font-style: normal;
       font-display: swap;
     }
-
 
     @font-face {
       font-family: "Beautifully Delicious";
@@ -53,6 +65,7 @@
       font-family: "Cormorant Garamond", Georgia, serif;
 
       background-color: #f5f1e7;
+
       background-image:
         radial-gradient(
           circle at 20% 30%,
@@ -91,16 +104,20 @@
       left: 0;
       width: 100%;
       z-index: 20;
+
       background: rgba(248, 244, 238, 0.92);
       backdrop-filter: blur(8px);
+
       border-bottom: 1px solid var(--line);
-      padding: 14px 20px;
+      padding: 12px 20px;
     }
 
     nav a {
+      display: inline-block;
       color: var(--text);
       text-decoration: none;
-      margin: 0 12px;
+      margin: 0 10px;
+
       font-size: 14px;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -110,12 +127,57 @@
       color: var(--accent);
     }
 
+    .language-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+
+    .language-selector button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 32px;
+      padding: 5px 9px;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      background: transparent;
+      color: var(--text);
+
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 13px;
+      font-weight: 600;
+
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .language-selector button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .language-selector button.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: var(--background);
+    }
+
     .hero {
       position: relative;
+
       min-height: 100vh;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       overflow: hidden;
       border-bottom: 1px solid var(--line);
       background: var(--background);
@@ -130,12 +192,17 @@
     .hero-slide {
       position: absolute;
       inset: 0;
+
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+
       opacity: 0;
       transform: scale(1.04);
-      transition: opacity 1.6s ease, transform 6s ease;
+
+      transition:
+        opacity 1.6s ease,
+        transform 6s ease;
     }
 
     .hero-slide.active {
@@ -146,58 +213,67 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(25, 18, 12, 0.42);
       z-index: 1;
+
+      background: rgba(25, 18, 12, 0.42);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 90px 24px 60px;
+
       max-width: 900px;
+      padding: 90px 24px 60px;
+
       color: var(--light-text);
       text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
     }
 
     .small-label {
+      margin-bottom: 24px;
+
       font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 24px;
+
       opacity: 0.95;
     }
 
     h1 {
+      margin: 0;
+
       font-family: "Alice", serif;
       font-size: 52px;
-      letter-spacing: 1px;
       font-weight: normal;
+      letter-spacing: 1px;
       text-transform: none;
-      margin: 0;
     }
 
     .cursive {
+      margin: 4px 0 58px;
+
       font-family: "Beautifully Delicious", cursive;
       font-size: 64px;
       font-weight: normal;
       line-height: 1.1;
-      margin: 4px 0 58px;
     }
 
     .names {
+      margin-bottom: 14px;
+
       font-family: "Brittany Signature", cursive;
       font-size: 90px;
       font-weight: normal;
       line-height: 1;
-      margin-bottom: 14px;
     }
 
     .date {
+      max-width: 680px;
+      margin: 0 auto;
+
       font-size: 20px;
       letter-spacing: 1px;
-      max-width: 680px;
       line-height: 1.6;
-      margin: 0 auto;
     }
 
     section {
@@ -211,9 +287,10 @@
     }
 
     h2 {
+      margin: 0 0 24px;
+
       font-size: 34px;
       font-weight: normal;
-      margin: 0 0 24px;
     }
 
     h3 {
@@ -223,20 +300,26 @@
     p {
       max-width: 680px;
       margin: 0 auto 18px;
+
       font-size: 18px;
       line-height: 1.7;
     }
 
     .button {
       display: inline-block;
+
       margin: 12px 8px;
       padding: 14px 28px;
+
       border: 1px solid var(--text);
+      border-radius: 999px;
+
       color: var(--text);
       text-decoration: none;
-      border-radius: 999px;
-      letter-spacing: 1px;
+
       font-size: 15px;
+      letter-spacing: 1px;
+
       transition: 0.2s;
     }
 
@@ -259,61 +342,69 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
+
       margin-top: 42px;
     }
 
     .card {
+      min-height: 240px;
+      padding: 28px 22px;
+
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 28px 22px;
-      min-height: 240px;
     }
 
     .card h3 {
-      font-size: 22px;
       margin: 0 0 12px;
+      font-size: 22px;
     }
 
     .price {
-      font-size: 24px;
       margin: 10px 0;
+
       color: var(--accent);
+      font-size: 24px;
     }
 
     .card p {
+      margin-bottom: 14px;
+
       font-size: 16px;
       line-height: 1.5;
-      margin-bottom: 14px;
     }
 
     .pix-box {
+      max-width: 620px;
       margin: 36px auto 0;
       padding: 26px;
-      max-width: 620px;
+
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 24px;
     }
 
     .pix-box h3 {
-      font-size: 24px;
       margin-top: 0;
       margin-bottom: 14px;
+      font-size: 24px;
     }
 
     .pix-key {
+      color: var(--accent);
+
       font-size: 18px;
       letter-spacing: 1px;
       word-break: break-word;
-      color: var(--accent);
     }
 
     .future-gallery {
       margin-top: 42px;
       padding: 34px 24px;
+
       border: 1px dashed var(--line);
       border-radius: 28px;
+
       background: rgba(255, 255, 255, 0.35);
     }
 
@@ -323,8 +414,9 @@
 
     footer {
       padding: 50px 24px;
-      font-size: 15px;
+
       color: var(--soft-text);
+      font-size: 15px;
     }
 
     @media (max-width: 800px) {
@@ -335,9 +427,12 @@
       nav {
         display: flex;
         justify-content: flex-start;
+        align-items: center;
+
         overflow-x: auto;
         white-space: nowrap;
-        padding: 12px 8px;
+
+        padding: 10px 8px;
         scrollbar-width: none;
       }
 
@@ -347,9 +442,23 @@
 
       nav a {
         flex: 0 0 auto;
+
         margin: 0 8px;
+
         font-size: 12px;
         letter-spacing: 0.7px;
+      }
+
+      .language-selector {
+        flex: 0 0 auto;
+        margin-left: 6px;
+        margin-right: 8px;
+      }
+
+      .language-selector button {
+        min-height: 30px;
+        padding: 4px 8px;
+        font-size: 12px;
       }
 
       .hero {
@@ -368,33 +477,37 @@
 
       h1 {
         font-size: clamp(36px, 10vw, 52px);
-        letter-spacing: 0;
         line-height: 1.05;
+        letter-spacing: 0;
       }
 
       .cursive {
+        margin: 4px 0 38px;
+
         font-size: clamp(42px, 12vw, 62px);
         line-height: 1;
-        margin: 4px 0 38px;
       }
 
       .names {
+        margin-bottom: 14px;
+
         font-size: clamp(54px, 15vw, 80px);
         line-height: 1;
-        margin-bottom: 14px;
       }
 
       .names img {
         display: block;
+
         width: min(90vw, 430px);
         height: auto;
         margin: 0 auto;
       }
 
       .small-label {
+        margin-bottom: 18px;
+
         font-size: 11px;
         letter-spacing: 2px;
-        margin-bottom: 18px;
       }
 
       section {
@@ -402,8 +515,8 @@
       }
 
       h2 {
-        font-size: 32px;
         margin-bottom: 18px;
+        font-size: 32px;
       }
 
       p {
@@ -413,6 +526,7 @@
 
       .button {
         display: block;
+
         width: min(100%, 320px);
         margin: 12px auto;
         padding: 14px 18px;
@@ -421,6 +535,7 @@
       .grid {
         grid-template-columns: 1fr;
         gap: 16px;
+
         margin-top: 30px;
       }
 
@@ -444,46 +559,130 @@
 
 <body>
   <nav>
-    <div class="language-selector">
-      <button type="button" data-language="pt-BR">🇧🇷 PT</button>
-      <button type="button" data-language="en">🇬🇧 EN</button>
+    <a
+      href="#inicio"
+      data-i18n="menuInicio"
+    >
+      Início
+    </a>
+
+    <a
+      href="#confirmacao"
+      data-i18n="menuConfirmacao"
+    >
+      Confirmação
+    </a>
+
+    <a
+      href="#presentes"
+      data-i18n="menuPresentes"
+    >
+      Presentes
+    </a>
+
+    <a
+      href="#fotos"
+      data-i18n="menuFotos"
+    >
+      Fotos
+    </a>
+
+    <a
+      href="#informacoes"
+      data-i18n="menuInformacoes"
+    >
+      Informações
+    </a>
+
+    <div
+      class="language-selector"
+      aria-label="Selecionar idioma"
+    >
+      <button
+        type="button"
+        data-language="pt-BR"
+        aria-label="Português"
+      >
+        🇧🇷 PT
+      </button>
+
+      <button
+        type="button"
+        data-language="en"
+        aria-label="English"
+      >
+        🇬🇧 EN
+      </button>
     </div>
-    <a href="#inicio" data-i18n="menuInicio">Início</a>
-    <a href="#confirmacao">Confirmação</a>
-    <a href="#presentes">Presentes</a>
-    <a href="#fotos">Fotos</a>
-    <a href="#informacoes">Informações</a>
   </nav>
 
   <main>
-    <header class="hero" id="inicio">
+    <header
+      class="hero"
+      id="inicio"
+    >
       <div class="hero-slides">
-        <div class="hero-slide active" style="background-image: url('imagens/casal-1.png');"></div>
-        <div class="hero-slide" style="background-image: url('imagens/casal-2.png');"></div>
-        <div class="hero-slide" style="background-image: url('imagens/casal-3.png');"></div>
-        <div class="hero-slide" style="background-image: url('imagens/casal-4.png');"></div>
+        <div
+          class="hero-slide active"
+          style="background-image: url('imagens/casal-1.png');"
+        ></div>
+
+        <div
+          class="hero-slide"
+          style="background-image: url('imagens/casal-2.png');"
+        ></div>
+
+        <div
+          class="hero-slide"
+          style="background-image: url('imagens/casal-3.png');"
+        ></div>
+
+        <div
+          class="hero-slide"
+          style="background-image: url('imagens/casal-4.png');"
+        ></div>
       </div>
 
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <h1>O amor sempre</h1>
-        <div class="cursive">encontra o caminho</div>
-        <div class="names">Taís & Eduardo</div>
+        <h1 data-i18n="fraseAmor">
+          O amor sempre
+        </h1>
 
-        <div class="small-label">26/09 · Arembepe, Bahia</div>
+        <div
+          class="cursive"
+          data-i18n="fraseCaminho"
+        >
+          encontra o caminho
+        </div>
+
+        <div class="names">
+          Taís & Eduardo
+        </div>
+
+        <div
+          class="small-label"
+          data-i18n="dataLocal"
+        >
+          26/09 · Arembepe, Bahia
+        </div>
       </div>
     </header>
 
     <section>
       <div class="container">
-        <h2>Nosso dia</h2>
-        <p>
-          Criamos este espaço para reunir as informações importantes do nosso casamento,
-          confirmar presença, compartilhar sugestões de presentes e, com o tempo,
-          guardar algumas lembranças desse momento.
+        <h2 data-i18n="nossoDiaTitulo">
+          Nosso dia
+        </h2>
+
+        <p data-i18n="nossoDiaTexto1">
+          Criamos este espaço para reunir as informações importantes do nosso
+          casamento, confirmar presença, compartilhar sugestões de presentes e,
+          com o tempo, guardar algumas lembranças desse momento.
         </p>
-        <p>
+
+        <p data-i18n="nossoDiaTexto2">
           Sua presença é muito especial para nós.
         </p>
       </div>
@@ -491,80 +690,106 @@
 
     <section id="confirmacao">
       <div class="container">
-        <h2>Confirme sua presença</h2>
-        <p>
-          Para nos ajudar na organização, pedimos que confirme sua presença pelo formulário abaixo.
+        <h2 data-i18n="confirmacaoTitulo">
+          Confirme sua presença
+        </h2>
+
+        <p data-i18n="confirmacaoTexto">
+          Para nos ajudar na organização, pedimos que confirme sua presença
+          pelo formulário abaixo.
         </p>
 
-        <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeRRHtvvDVJw9YiCLRWuSFb5q3qaVl6gYhbDumC48q__AinUw/viewform?usp=publish-editor" target="_blank">
+        <a
+          class="button"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeRRHtvvDVJw9YiCLRWuSFb5q3qaVl6gYhbDumC48q__AinUw/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="confirmacaoBotao"
+        >
           Confirmar presença
         </a>
       </div>
     </section>
 
+    <section id="presentes">
+      <div class="container">
+        <h2 data-i18n="presentesTitulo">
+          Sugestões de presentes
+        </h2>
 
-<section id="presentes">
-  <div class="container">
-    <h2>Sugestões de presentes</h2>
+        <p data-i18n="presentesTexto1">
+          A sua presença nesse momento tão especial já é o nosso maior
+          presente. Mas, para quem quiser nos presentear, preparamos uma lista
+          com algumas sugestões escolhidas com muito carinho para a nossa nova
+          fase.
+        </p>
 
-    <p>
-      A sua presença nesse momento tão especial já é o nosso maior presente.
-      Mas, para quem quiser nos presentear, preparamos uma lista com algumas
-      sugestões escolhidas com muito carinho para a nossa nova fase.
-    </p>
+        <p data-i18n="presentesTexto2">
+          Primeiro, consulte a lista para conhecer nossas sugestões, acessar os
+          links de referência e conferir quais presentes ainda estão
+          disponíveis.
+        </p>
 
-    <p>
-      Primeiro, consulte a lista para conhecer nossas sugestões, acessar os
-      links de referência e conferir quais presentes ainda estão disponíveis.
-    </p>
+        <a
+          class="button"
+          href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRT3jyEmtC3dtjXDTYiIo8EN3eLLACy47y5wNpZWgV3AUQIi1yy0XiXZsd5993ORU4Q0b9LH6UR0Nyr/pubhtml?gid=2030299606&single=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="presentesBotao"
+        >
+          Ver lista de presentes
+        </a>
 
-    <a
-      class="button"
-      href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRT3jyEmtC3dtjXDTYiIo8EN3eLLACy47y5wNpZWgV3AUQIi1yy0XiXZsd5993ORU4Q0b9LH6UR0Nyr/pubhtml?gid=2030299606&single=true"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Ver lista de presentes
-    </a>
+        <div style="margin-top: 54px;">
+          <h2 data-i18n="escolhaTitulo">
+            Já escolheu o presente?
+          </h2>
 
-    <div style="margin-top: 54px;">
-      <h2>Já escolheu o presente?</h2>
+          <p data-i18n="escolhaTexto">
+            Depois de escolher um item disponível na lista, pedimos que
+            registre sua escolha no formulário. Assim, conseguimos atualizar a
+            lista e evitar presentes repetidos.
+          </p>
 
-      <p>
-        Depois de escolher um item disponível na lista, pedimos que registre
-        sua escolha no formulário. Assim, conseguimos atualizar a lista e
-        evitar presentes repetidos.
-      </p>
-
-      <a
-        class="button secondary"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSelQpEAfmLnhtDnPnj6urSrzNgaaF0vx2QQBR5hm2MZLNYnaQ/viewform?usp=header"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Registrar minha escolha
-      </a>
-    </div>
-  </div>
-</section>
-
+          <a
+            class="button secondary"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSelQpEAfmLnhtDnPnj6urSrzNgaaF0vx2QQBR5hm2MZLNYnaQ/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="escolhaBotao"
+          >
+            Registrar minha escolha
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section id="fotos">
       <div class="container">
-        <h2>Fotos</h2>
-        <p>
-          Reunimos aqui algumas fotos nossas e, depois do casamento,
-          também vamos guardar os registros oficiais desse dia.
+        <h2 data-i18n="fotosTitulo">
+          Fotos
+        </h2>
+
+        <p data-i18n="fotosTexto">
+          Reunimos aqui algumas fotos nossas e, depois do casamento, também
+          vamos guardar os registros oficiais desse dia.
         </p>
 
         <div class="future-gallery">
-          <h3>Nossas lembranças</h3>
-          <p>
+          <h3 data-i18n="lembrancasTitulo">
+            Nossas lembranças
+          </h3>
+
+          <p data-i18n="lembrancasTexto">
             Clique abaixo para acessar a galeria com nossas fotos e, em breve,
             as fotos do casamento.
           </p>
 
-          <a class="button" href="fotos.html">
+          <a
+            class="button"
+            href="fotos.html"
+            data-i18n="galeriaBotao"
+          >
             Ver galeria de fotos
           </a>
         </div>
@@ -573,13 +798,19 @@
 
     <section id="informacoes">
       <div class="container">
-        <h2>Informações importantes</h2>
-        <p>
-          Este site é destinado aos nossos convidados. Pedimos que o link não seja compartilhado
-          fora da lista de convidados.
+        <h2 data-i18n="informacoesTitulo">
+          Informações importantes
+        </h2>
+
+        <p data-i18n="informacoesTexto1">
+          Este site é destinado aos nossos convidados. Pedimos que o link não
+          seja compartilhado fora da lista de convidados.
         </p>
-        <p>
-          Todas as informações sobre o horário, o local e os demais detalhes do nosso casamento estarão no convite virtual. Lá, você poderá consultar tudo com calma sempre que precisar.
+
+        <p data-i18n="informacoesTexto2">
+          Todas as informações sobre o horário, o local e os demais detalhes do
+          nosso casamento estarão no convite virtual. Lá, você poderá consultar
+          tudo com calma sempre que precisar.
         </p>
       </div>
     </section>
@@ -595,13 +826,14 @@
 
     setInterval(() => {
       heroSlides[currentHeroSlide].classList.remove("active");
-      currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+
+      currentHeroSlide =
+        (currentHeroSlide + 1) % heroSlides.length;
+
       heroSlides[currentHeroSlide].classList.add("active");
     }, 5000);
   </script>
 
-  
-<script src="idioma.js"></script>
-
+  <script src="idioma.js"></script>
 </body>
 </html>
