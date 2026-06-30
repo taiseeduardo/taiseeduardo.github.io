@@ -111,7 +111,7 @@ const traducoes = {
       "Your presence on this special day is already the greatest gift we could receive. Still, for those who would like to give us something, we have prepared a list of suggestions chosen with great care for this new chapter of our lives.",
     presentesTexto2:
       "First, check the list to see our suggestions, open the reference links and find out which gifts are still available.",
-    presentesEndereco: "If you would like to give us an item from our gift list, please contact us for the delivery address. The address will also be available on the invitation.",
+    enderecoPresentes: "If you would like to give us an item from our gift list, please contact us for the delivery address. The address will also be available on the invitation.",
     presentesBotao: "View gift list",
 
     escolhaTitulo: "Already chosen a gift?",
