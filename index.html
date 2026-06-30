@@ -578,6 +578,105 @@
         padding: 36px 18px;
       }
     }
+    /* ÁREA DE PRESENTES POR PIX */
+
+    .pix-presentes {
+      margin-top: 54px;
+    }
+
+    .pix-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+
+      margin-top: 32px;
+    }
+
+    .pix-card {
+      padding: 24px 18px;
+
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+
+    .pix-card h3 {
+      margin: 0 0 6px;
+
+      font-size: 23px;
+      font-weight: normal;
+    }
+
+    .pix-valor {
+      margin-bottom: 16px;
+
+      color: var(--accent);
+
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .pix-qr {
+      display: block;
+
+      width: 100%;
+      max-width: 190px;
+      aspect-ratio: 1 / 1;
+
+      margin: 0 auto 16px;
+      padding: 10px;
+
+      object-fit: contain;
+
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .pix-placeholder {
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      max-width: 190px;
+      aspect-ratio: 1 / 1;
+
+      margin: 0 auto 16px;
+      padding: 20px;
+
+      color: var(--soft-text);
+      background: rgba(255, 255, 255, 0.4);
+
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .pix-card p {
+      margin: 0 auto;
+
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .pix-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .pix-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pix-card {
+        padding: 24px 18px;
+      }
+    }
   </style>
 </head>
 
@@ -784,6 +883,150 @@
           >
             Registrar minha escolha
           </a>
+        </div>
+        <div class="pix-presentes">
+          <h2 data-i18n="pixTitulo">
+            Prefere nos presentear por PIX?
+          </h2>
+
+          <p data-i18n="pixTexto">
+            Para quem preferir contribuir dessa forma, disponibilizamos algumas opções
+            de valores. Basta abrir o aplicativo do seu banco e escanear o QR Code
+            escolhido.
+          </p>
+
+          <div class="pix-grid">
+            <div class="pix-card">
+              <h3 data-i18n="pixPresente">
+                Presente por PIX
+              </h3>
+
+              <div class="pix-valor">
+                R$ 100
+              </div>
+
+              <img
+                class="pix-qr"
+                src="imagens/pix-100.png"
+                alt="QR Code PIX no valor de 100 reais"
+                loading="lazy"
+                onerror="
+                  this.style.display='none';
+                  this.nextElementSibling.style.display='flex';
+                "
+              >
+
+              <div
+                class="pix-placeholder"
+                data-i18n="pixAguardando"
+              >
+                QR Code será adicionado em breve.
+              </div>
+
+              <p data-i18n="pixEscanear">
+                Escaneie pelo aplicativo do seu banco.
+              </p>
+            </div>
+
+            <div class="pix-card">
+              <h3 data-i18n="pixPresente">
+                Presente por PIX
+              </h3>
+
+              <div class="pix-valor">
+                R$ 200
+              </div>
+
+              <img
+                class="pix-qr"
+                src="imagens/pix-200.png"
+                alt="QR Code PIX no valor de 200 reais"
+                loading="lazy"
+                onerror="
+                  this.style.display='none';
+                  this.nextElementSibling.style.display='flex';
+                "
+              >
+
+              <div
+                class="pix-placeholder"
+                data-i18n="pixAguardando"
+              >
+                QR Code será adicionado em breve.
+              </div>
+
+              <p data-i18n="pixEscanear">
+                Escaneie pelo aplicativo do seu banco.
+              </p>
+            </div>
+
+            <div class="pix-card">
+              <h3 data-i18n="pixPresente">
+                Presente por PIX
+              </h3>
+
+              <div class="pix-valor">
+                R$ 300
+              </div>
+
+              <img
+                class="pix-qr"
+                src="imagens/pix-300.png"
+                alt="QR Code PIX no valor de 300 reais"
+                loading="lazy"
+                onerror="
+                  this.style.display='none';
+                  this.nextElementSibling.style.display='flex';
+                "
+              >
+
+              <div
+                class="pix-placeholder"
+                data-i18n="pixAguardando"
+              >
+                QR Code será adicionado em breve.
+              </div>
+
+              <p data-i18n="pixEscanear">
+                Escaneie pelo aplicativo do seu banco.
+              </p>
+            </div>
+
+            <div class="pix-card">
+              <h3 data-i18n="pixPresente">
+                Presente por PIX
+              </h3>
+
+              <div
+                class="pix-valor"
+                data-i18n="pixValorLivre"
+              >
+                Qualquer valor
+              </div>
+
+              <img
+                class="pix-qr"
+                src="imagens/pix-livre.png"
+                alt="QR Code PIX sem valor definido"
+                loading="lazy"
+                onerror="
+                  this.style.display='none';
+                  this.nextElementSibling.style.display='flex';
+                "
+              >
+
+              <div
+                class="pix-placeholder"
+                data-i18n="pixAguardando"
+              >
+                QR Code será adicionado em breve.
+              </div>
+
+              <p data-i18n="pixEscanear">
+                Escaneie pelo aplicativo do seu banco.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
