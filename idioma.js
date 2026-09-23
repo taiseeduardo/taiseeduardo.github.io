@@ -90,9 +90,9 @@ const traducoes = {
       "Este site é destinado aos nossos convidados. Pedimos que o link não seja compartilhado fora da lista de convidados.",
 
     informacoesTexto2:
-      "A cerimônia e a festa acontecerão na ''casa pé na areia'', na Rua do Piruí, 67, em Arembepe. Abaixo, você encontra o endereço e o mapa para chegar com mais facilidade.",
+      "A cerimônia e a festa acontecerão na ''casa pé na areia'', na Rua do Piruí, 89, em Arembepe. Abaixo, você encontra o endereço e o mapa para chegar com mais facilidade.",
     localizacaoNome: "Local da cerimônia e da festa",
-    localizacaoEndereco: "Rua do Piruí, 67, Arembepe, Camaçari - BA",
+    localizacaoEndereco: "Rua do Piruí, 89, Arembepe, Camaçari - BA",
 
     localizacaoTitulo: "Localização",
     localizacaoEndereco: "Abrantes, Camaçari - BA, 42830-474",
@@ -207,10 +207,10 @@ const traducoes = {
       "This website is intended for our guests. Please do not share the link with anyone outside the guest list.",
 
     informacoesTexto2:
-      "The ceremony and reception will take place at ''casa pe na areia'' at Rua do Piruí, 67, in Arembepe. Below, you can find the address and map to help you get there.",
+      "The ceremony and reception will take place at ''casa pe na areia'' at Rua do Piruí, 89, in Arembepe. Below, you can find the address and map to help you get there.",
     localizacaoNome: "Ceremony and reception venue",
     localizacaoEndereco:
-      "Rua do Piruí, 67, Arembepe, Camaçari - Bahia, Brazil",
+      "Rua do Piruí, 89, Arembepe, Camaçari - Bahia, Brazil",
 
     localizacaoEndereco:
       "Abrantes, Camaçari - Bahia, 42830-474, Brazil",
