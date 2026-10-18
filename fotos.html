@@ -364,18 +364,17 @@
       }
 
       .gallery {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
       }
 
       .gallery img {
+        display: block;
         width: 100%;
         height: auto;
-        aspect-ratio: 4 / 5;
-
+        aspect-ratio: 1 / 1;
         object-fit: cover;
-
-        border-radius: 16px;
+        border-radius: 10px;
       }
 
       p {
@@ -630,5 +629,6 @@
   </script>
 
   <script src="idioma.js"></script>
+<script src="galeria-navegacao.js" defer></script>
 </body>
 </html>
