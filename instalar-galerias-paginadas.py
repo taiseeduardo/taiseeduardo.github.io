@@ -119,7 +119,7 @@ def main():
         raise SystemExit('Não encontrei o visualizador de fotos. Nenhuma alteração feita.')
     backup=root/'fotos-antes-da-paginacao.html.bak'
     if not backup.exists():backup.write_text(template,encoding='utf-8')
-    albums=[('fotos.html','fotos-casamento','Fotos por Thiago'),
+    albums=[('fotos.html','fotos-casamento','Fotos por Tiago Pacheco'),
             ('fotos-convidados.html','fotos-convidados','Fotos dos convidados'),
             ('fotos-enviadas.html','fotos-enviadas','Fotos enviadas pelos convidados')]
     # Retira os carregadores antigos para que não baixem as galerias completas.

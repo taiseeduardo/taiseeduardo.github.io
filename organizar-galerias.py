@@ -54,7 +54,7 @@ def main():
     (root / 'galeria-convidados.js').write_text(LOADER, encoding='utf-8')
     # Remove o atributo de tradução só dos textos substituídos, evitando que idioma.js os restaure.
     text = re.sub(r'<h2\b[^>]*data-i18n="fotosCasamentoTitulo"[^>]*>.*?</h2>',
-                  '<h2>Fotos por Thiago</h2>', text, count=1, flags=re.S)
+                  '<h2>Fotos por Tiago Pacheco</h2>', text, count=1, flags=re.S)
     text = re.sub(r'<p\b[^>]*data-i18n="fotosCasamentoTexto"[^>]*>.*?</p>',
                   '<p>Os registros oficiais do nosso grande dia.</p>', text, count=1, flags=re.S)
     section = '''
@@ -97,7 +97,7 @@ def main():
         js = js.replace("gallery.addEventListener('click', event => {\n    if (event.target.tagName !== 'IMG') return;",
                         "document.addEventListener('click', event => {\n    if (event.target.tagName !== 'IMG' || !event.target.closest('.gallery')) return;\n    gallery = event.target.closest('.gallery');")
         navigation.write_text(js, encoding='utf-8')
-    print(f'Pronto! Fotos por Thiago e Fotos dos convidados separadas. {len(photos)} fotos de convidados cadastradas.')
+    print(f'Pronto! Fotos por Tiago Pacheco e Fotos dos convidados separadas. {len(photos)} fotos de convidados cadastradas.')
     print('Fotos oficiais e músicas preservadas. Faça Commit e Push das alterações.')
     if not link:
         print('Para ativar o envio depois: python3 organizar-galerias.py "LINK_DO_FORMULARIO"')
