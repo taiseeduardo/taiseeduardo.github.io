@@ -1,0 +1,16 @@
+#player-musicas {
+  position:fixed; bottom: max(16px, env(safe-area-inset-bottom)); right:16px;
+  z-index:90; max-width:calc(100vw - 32px); padding:10px 14px;
+  background:#fffaf4; color:#2b2118; border:1px solid #d8cfc2;
+  border-radius:20px; box-shadow:0 3px 16px #0002;
+  font-family:Georgia,serif; text-align:center;
+}
+#player-musicas button {
+  background:transparent; color:inherit; border:0; padding:8px;
+  font:inherit; font-size:15px; cursor:pointer; min-height:44px;
+}
+#player-musicas button:focus-visible {outline:2px solid #8a6a4f; border-radius:8px;}
+#player-musicas button:disabled {cursor:default; opacity:.65;}
+#player-musicas span {display:block; font-size:12px; max-width:240px;}
+#player-musicas span:empty {display:none;}
+body {padding-bottom:110px;}
