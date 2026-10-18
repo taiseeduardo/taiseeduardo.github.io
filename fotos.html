@@ -473,14 +473,9 @@
   <main>
     <section id="fotos-casamento">
       <div class="container">
-        <h2 data-i18n="fotosCasamentoTitulo">
-          Fotos do casamento
-        </h2>
+        <h2>Fotos por Thiago</h2>
 
-        <p data-i18n="fotosCasamentoTexto">
-          Depois do casamento, vamos reunir aqui os registros oficiais desse
-          dia.
-        </p>
+        <p>Os registros oficiais do nosso grande dia.</p>
 
         <div
           id="galeriaCasamento"
@@ -498,7 +493,29 @@
         </div>
       </div>
     </section>
-  </main>
+  
+    <!-- inicio-galerias-convidados -->
+    <section id="fotos-convidados">
+      <div class="container">
+        <h2>Fotos dos convidados</h2>
+        <p>Nosso dia pelo olhar de quem celebrou com a gente.</p>
+        <div id="galeriaConvidados" class="gallery"></div>
+        <div id="mensagemConvidados" class="empty-message">Em breve, mais lembranças compartilhadas pelos nossos convidados.</div>
+      </div>
+    </section>
+    
+<section id="fotos-enviadas"><div class="container"><h2>Fotos enviadas pelos convidados</h2><p>Mais lembranças compartilhadas por vocês.</p><div id="galeriaEnviadas" class="gallery"></div><div id="mensagemEnviadas" class="empty-message">Esta galeria vai receber as fotos que vocês compartilharem com a gente.</div></div></section>
+<section id="enviar-fotos">
+      <div class="container">
+        <h2>Compartilhe suas fotos</h2>
+        <p>Registrou algum momento especial? Compartilhe com a gente!</p>
+        <!-- botao-envio-inicio -->
+<a class="button" href="https://www.dropbox.com/request/bhpakoaf9v799zwr894h" target="_blank" rel="noopener noreferrer">Envie suas fotos</a><p>O envio é feito pelo Dropbox. Depois, reuniremos as fotos nesta galeria.</p>
+<!-- botao-envio-fim -->
+      </div>
+    </section>
+    <!-- fim-galerias-convidados -->
+</main>
 
   <div
     id="lightbox"
@@ -630,5 +647,7 @@
 
   <script src="idioma.js"></script>
 <script src="galeria-navegacao.js" defer></script>
+<script src="galeria-convidados.js" defer></script>
+<script src="galeria-enviadas.js" defer></script>
 </body>
 </html>

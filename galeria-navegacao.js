@@ -1,7 +1,7 @@
 (() => {
   const box = document.getElementById('lightbox');
   const photo = document.getElementById('lightboxImage');
-  const gallery = document.getElementById('galeriaCasamento');
+  let gallery = document.getElementById('galeriaCasamento');
   if (!box || !photo || !gallery || document.getElementById('foto-anterior')) return;
   let current = 0;
   const images = () => Array.from(gallery.querySelectorAll('img'));
@@ -33,8 +33,9 @@
   button('foto-anterior', 'Foto anterior', '❮', -1);
   button('foto-proxima', 'Próxima foto', '❯', 1);
   box.append(count);
-  gallery.addEventListener('click', event => {
-    if (event.target.tagName !== 'IMG') return;
+  document.addEventListener('click', event => {
+    if (event.target.tagName !== 'IMG' || !event.target.closest('.gallery')) return;
+    gallery = event.target.closest('.gallery');
     current = images().indexOf(event.target);
     updateCount();
   });
