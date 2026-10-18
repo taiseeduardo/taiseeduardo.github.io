@@ -8,9 +8,7 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title data-i18n="tituloPaginaFotos">
-    Fotos — Taís & Eduardo
-  </title>
+  <title>Fotos por Thiago — Taís &amp; Eduardo</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -413,6 +411,20 @@
 @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto;}}
 /* fim-menu-galerias */
 </style>
+<style id="estilo-paginacao">
+.atalhos-albuns {display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:25px auto 0;}
+.atalhos-albuns a,.paginacao-fotos button {padding:12px 18px; border:1px solid #d8cfc2; border-radius:24px; background:#fffaf4; color:#2b2118; text-decoration:none; font:inherit; min-height:44px;}
+.atalhos-albuns a[aria-current="page"] {background:#2b2118; color:#fffaf4;}
+.paginacao-fotos {display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; margin-top:30px; font-size:18px;}
+.paginacao-fotos button {cursor:pointer;} .paginacao-fotos button:disabled {opacity:.4;cursor:default;}
+#galeriaPaginada .abrir-foto {display:block; min-width:0; width:100%; padding:0; border:0; background:transparent; cursor:pointer;}
+#galeriaPaginada .abrir-foto img {display:block; width:100%;}
+.seta-paginada {position:absolute;top:50%;transform:translateY(-50%);width:44px;height:50px;background:#000a;color:white;border:1px solid #fff8;border-radius:10px;font-size:26px;cursor:pointer;z-index:102;}
+.seta-paginada.anterior {left:8px;} .seta-paginada.proxima {right:8px;}
+.contador-paginado {position:absolute;bottom:16px;left:50%;transform:translateX(-50%);padding:8px 15px;background:#000b;color:white;border-radius:20px;}
+#albumFotos {scroll-margin-top:90px;}
+@media(max-width:600px){#galeriaPaginada {grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}#galeriaPaginada img {height:auto;aspect-ratio:1;object-fit:cover;border-radius:10px;}.atalhos-albuns {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}.atalhos-albuns a {font-size:16px;}}
+</style>
 </head>
 
 <body>
@@ -439,7 +451,7 @@
     </a>
 
     <a
-      href="#fotos-casamento"
+      href="fotos.html"
       data-i18n="menuFotosCasamento"
     >
       Fotos do casamento
@@ -467,92 +479,9 @@
     </div>
   </nav>
 
-  <header>
-    <div class="small-label">
-      Taís & Eduardo
-    </div>
+  <header><div class="small-label">Taís &amp; Eduardo</div><h1>Fotos por Thiago</h1><p class="subtitle">As lembranças do nosso grande dia.</p><div class="atalhos-albuns" role="navigation" aria-label="Álbuns de fotos"><a href="fotos.html" aria-current="page">Fotos por Thiago</a><a href="fotos-convidados.html">Fotos dos convidados</a><a href="fotos-enviadas.html">Fotos enviadas pelos convidados</a><a href="fotos-enviadas.html#enviar-fotos">Envie suas fotos</a></div></header>
 
-    <h1 data-i18n="fotosCasamentoTitulo">
-      Fotos do casamento
-    </h1>
-
-    <div
-      class="subtitle"
-      data-i18n="galeriaSubtitulo"
-    >
-      Um espaço para guardar as lembranças do nosso grande dia.
-    </div>
-
-    <a
-      class="button"
-      href="index.html"
-      data-i18n="voltarSite"
-    >
-      Voltar ao site
-    </a>
-  
-<div id="menu-galerias" role="navigation" aria-label="Galerias de fotos">
-<a href="#fotos-casamento">Fotos por Thiago</a>
-<a href="#fotos-convidados">Fotos dos convidados</a>
-<a href="#fotos-enviadas">Fotos enviadas</a>
-<a href="#enviar-fotos">Envie suas fotos</a>
-</div>
-</header>
-
-  <main>
-    <section id="fotos-casamento">
-      <div class="container">
-        <h2>Fotos por Thiago</h2>
-
-        <p>Os registros oficiais do nosso grande dia.</p>
-
-        <div
-          id="galeriaCasamento"
-          class="gallery"
-        ></div>
-
-        <div
-          id="mensagemCasamento"
-          class="empty-message"
-          style="display: none;"
-          data-i18n="semFotosCasamento"
-        >
-          As fotos do casamento ainda não foram adicionadas. Em breve esse
-          espaço será preenchido.
-        </div>
-      </div>
-    
-<a class="voltar-menu-fotos" href="#menu-galerias">↑ Voltar ao topo</a>
-</section>
-  
-    <!-- inicio-galerias-convidados -->
-    <section id="fotos-convidados">
-      <div class="container">
-        <h2>Fotos dos convidados</h2>
-        <p>Nosso dia pelo olhar de quem celebrou com a gente.</p>
-        <div id="galeriaConvidados" class="gallery"></div>
-        <div id="mensagemConvidados" class="empty-message">Em breve, mais lembranças compartilhadas pelos nossos convidados.</div>
-      </div>
-    
-<a class="voltar-menu-fotos" href="#menu-galerias">↑ Voltar ao topo</a>
-</section>
-    
-<section id="fotos-enviadas"><div class="container"><h2>Fotos enviadas pelos convidados</h2><p>Mais lembranças compartilhadas por vocês.</p><div id="galeriaEnviadas" class="gallery"></div><div id="mensagemEnviadas" class="empty-message">Esta galeria vai receber as fotos que vocês compartilharem com a gente.</div></div>
-<a class="voltar-menu-fotos" href="#menu-galerias">↑ Voltar ao topo</a>
-</section>
-<section id="enviar-fotos">
-      <div class="container">
-        <h2>Compartilhe suas fotos</h2>
-        <p>Registrou algum momento especial? Compartilhe com a gente!</p>
-        <!-- botao-envio-inicio -->
-<a class="button" href="https://www.dropbox.com/request/bhpakoaf9v799zwr894h" target="_blank" rel="noopener noreferrer">Envie suas fotos</a><p>O envio é feito pelo Dropbox. Depois, reuniremos as fotos nesta galeria.</p>
-<!-- botao-envio-fim -->
-      </div>
-    
-<a class="voltar-menu-fotos" href="#menu-galerias">↑ Voltar ao topo</a>
-</section>
-    <!-- fim-galerias-convidados -->
-</main>
+  <main><section id="albumFotos"><div class="container"><h2>Fotos por Thiago</h2><p id="mensagemFotos" role="status">Carregando fotos…</p><div class="gallery" id="galeriaPaginada" data-list="fotos-casamento.json"></div><div id="paginacaoFotos" class="paginacao-fotos" role="navigation" aria-label="Páginas de fotos"></div></div></section></main>
 
   <div
     id="lightbox"
@@ -576,115 +505,12 @@
     Taís & Eduardo · 26/09 · Arembepe, Bahia
   </footer>
 
-  <script>
-    const lightbox =
-      document.getElementById("lightbox");
-
-    const lightboxImage =
-      document.getElementById("lightboxImage");
-
-    const closeLightbox =
-      document.getElementById("closeLightbox");
-
-    function abrirLightbox(src, alt) {
-      lightboxImage.src = src;
-      lightboxImage.alt = alt;
-      lightbox.classList.add("active");
-    }
-
-    function fecharLightbox() {
-      lightbox.classList.remove("active");
-      lightboxImage.src = "";
-      lightboxImage.alt = "";
-    }
-
-    function carregarGaleria(
-      arquivoJson,
-      idGaleria,
-      idMensagem,
-      altPadrao
-    ) {
-      const galeria =
-        document.getElementById(idGaleria);
-
-      const mensagem =
-        document.getElementById(idMensagem);
-
-      fetch(arquivoJson)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(
-              "Não foi possível carregar " + arquivoJson
-            );
-          }
-
-          return response.json();
-        })
-        .then(fotos => {
-          if (!fotos || fotos.length === 0) {
-            mensagem.style.display = "block";
-            return;
-          }
-
-          mensagem.style.display = "none";
-
-          fotos.forEach(foto => {
-            const img =
-              document.createElement("img");
-
-            img.src = foto.src;
-            img.alt = foto.alt || altPadrao;
-            img.loading = "lazy";
-            img.decoding = "async";
-
-            img.addEventListener("click", () => {
-              abrirLightbox(
-                img.src,
-                img.alt
-              );
-            });
-
-            galeria.appendChild(img);
-          });
-        })
-        .catch(error => {
-          mensagem.style.display = "block";
-
-          console.error(
-            "Erro ao carregar " + arquivoJson,
-            error
-          );
-        });
-    }
-
-    carregarGaleria(
-      "fotos-casamento.json",
-      "galeriaCasamento",
-      "mensagemCasamento",
-      "Foto do casamento de Taís e Eduardo"
-    );
-
-    closeLightbox.addEventListener(
-      "click",
-      fecharLightbox
-    );
-
-    lightbox.addEventListener("click", event => {
-      if (event.target === lightbox) {
-        fecharLightbox();
-      }
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        fecharLightbox();
-      }
-    });
-  </script>
+  
 
   <script src="idioma.js"></script>
-<script src="galeria-navegacao.js" defer></script>
-<script src="galeria-convidados.js" defer></script>
-<script src="galeria-enviadas.js" defer></script>
+
+
+
+<script src="galerias-paginadas.js" defer></script>
 </body>
 </html>
