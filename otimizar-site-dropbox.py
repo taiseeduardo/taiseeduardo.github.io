@@ -19,33 +19,9 @@ EXTENSIONS = {'.jpg', '.jpeg', '.png', '.heic', '.heif', '.webp', '.avif', '.gif
 CONFIG = 'download-originais.json'
 STATE = '.estado-otimizacao-fotos.json'
 WEB = '_web'
-DOWNLOAD_JS = r'''(() => {
-  const page = location.pathname.split('/').pop();
-  const albums = {'fotos.html':'fotos-casamento','fotos-convidados.html':'fotos-convidados','fotos-enviadas.html':'fotos-enviadas'};
-  const key = albums[page];
-  if (!key || document.getElementById('baixar-originais')) return;
-  fetch('download-originais.json', {cache:'no-cache'})
-    .then(r => {if(!r.ok)throw new Error();return r.json();})
-    .then(config => {
-      const url=config.links && config.links[key];
-      if(!url)return;
-      const parsed=new URL(url);
-      if(parsed.protocol!=='https:' || !(parsed.hostname==='dropbox.com' || parsed.hostname.endsWith('.dropbox.com')))return;
-      const area=document.createElement('div');
-      const link=document.createElement('a');
-      link.id='baixar-originais';link.className='button';link.href=url;
-      link.target='_blank';link.rel='noopener noreferrer';
-      const caption=document.createElement('p');caption.style.fontSize='16px';
-      function translate(){
-        const en=document.documentElement.lang.startsWith('en');
-        link.textContent=en?'Download original photos':'Baixar fotos em qualidade original';
-        caption.textContent=en?'Full-quality files on Dropbox. The gallery uses lighter copies.':'Arquivos em qualidade original no Dropbox. A galeria usa cópias mais leves.';
-      }
-      area.append(link,caption);document.querySelector('header').append(area);
-      translate();new MutationObserver(translate).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-    }).catch(()=>{});
-})();
-'''
+# As páginas e download-originais.js são arquivos permanentes do site.
+PREVIEW_SETTINGS = {'max_pixels': 1600, 'jpeg_quality': 80}
+
 
 
 def digest(path):
@@ -106,6 +82,7 @@ def main():
         folder_input = input('Cole o caminho da pasta LOCAL do Dropbox para guardar os originais: ').strip()
     if not folder_input:
         raise SystemExit('Nenhuma pasta informada. Nada foi alterado.')
+    folder_input = folder_input.strip().strip("\"'")
     archive = Path(folder_input).expanduser().resolve()
     if archive == root or root in archive.parents or archive in root.parents:
         raise SystemExit('A pasta dos originais precisa ficar fora da pasta do site e não pode conter o site.')
@@ -157,7 +134,9 @@ def main():
                 site_relative = Path(folder) / WEB / (name + extension)
                 target = root / site_relative
                 old = state.get('previews', {}).get(key, {})
-                if (old.get('original_sha256') == original_hash and target.exists()
+                if (old.get('original_sha256') == original_hash
+                        and old.get('settings', {'max_pixels': 1600, 'jpeg_quality': 80}) == PREVIEW_SETTINGS
+                        and target.exists()
                         and old.get('preview_sha256') == digest(target)):
                     staged = target
                 else:
@@ -166,8 +145,8 @@ def main():
                     if extension == '.gif':
                         shutil.copy2(original, staged)
                     else:
-                        result = subprocess.run([sips, '-Z', '1600', '-s', 'format', 'jpeg',
-                                                 '-s', 'formatOptions', '80', str(original), '--out', str(staged)],
+                        result = subprocess.run([sips, '-Z', str(PREVIEW_SETTINGS['max_pixels']), '-s', 'format', 'jpeg',
+                                                 '-s', 'formatOptions', str(PREVIEW_SETTINGS['jpeg_quality']), str(original), '--out', str(staged)],
                                                 capture_output=True, text=True)
                         if result.returncode or not staged.exists() or staged.stat().st_size == 0:
                             raise RuntimeError('Não consegui converter ' + key + '. Os originais continuam preservados.\n' + result.stderr)
@@ -175,7 +154,8 @@ def main():
                 planned.append((staged, target))
                 updated_state['previews'][key] = {'original_sha256': original_hash,
                                                   'preview_sha256': digest(staged),
-                                                  'arquivo_site': site_relative.as_posix()}
+                                                  'arquivo_site': site_relative.as_posix(),
+                                                  'settings': dict(PREVIEW_SETTINGS)}
                 manifests[folder].append({'src': quote(site_relative.as_posix(), safe='/'), 'alt': 'Foto do casamento'})
         removed = {p.resolve() for p, _, _ in incoming}
         generated = {p.resolve() for folder, _, _ in ALBUMS for p in (root / folder / WEB).rglob('*') if p.is_file()}
@@ -208,14 +188,6 @@ def main():
         ignore = ignore_path.read_text(encoding='utf-8') if ignore_path.exists() else ''
         if STATE not in ignore.splitlines():
             ignore_path.write_text(ignore.rstrip() + '\n' + STATE + '\n', encoding='utf-8')
-        (root / 'download-originais.js').write_text(DOWNLOAD_JS, encoding='utf-8')
-        for _, _, name in ALBUMS:
-            page = root / name
-            text = page.read_text(encoding='utf-8')
-            if 'src="download-originais.js"' not in text:
-                pos = text.lower().rindex('</body>')
-                text = text[:pos] + '<script src="download-originais.js" defer></script>\n' + text[pos:]
-                page.write_text(text, encoding='utf-8')
         # Só remove da pasta publicada os arquivos já copiados e verificados no Dropbox.
         for source, _, _ in incoming:
             source.unlink()
@@ -224,7 +196,7 @@ def main():
             for old in (root / folder / WEB).rglob('*'):
                 if old.is_file() and old.resolve() not in keep:
                     old.unlink()
-    print('\nPronto! Originais preservados no Dropbox local; galeria com cópias JPEG de até 2048 pixels.')
+    print(f"\nPronto! Originais preservados no Dropbox local; cópias JPEG de até {PREVIEW_SETTINGS['max_pixels']} pixels, qualidade {PREVIEW_SETTINGS['jpeg_quality']}.")
     print('As cópias são comprimidas. Os originais arquivados são idênticos, verificados por SHA-256.')
     print('Aguarde o aplicativo Dropbox concluir a sincronização.')
     print('No Dropbox, crie links das três pastas como PODE VISUALIZAR e coloque-os no arquivo ' + CONFIG + '.')

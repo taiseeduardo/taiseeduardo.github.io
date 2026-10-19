@@ -1,2 +1,6 @@
 
 .estado-otimizacao-fotos.json
+.limpeza-site.json
+/limpar-site.py
+__pycache__/
+*.pyc
